@@ -15,14 +15,15 @@ function println(string) {
 }
 
 function install() {
-   switch(os.platform()) {
-      case 'darwin':
+   var platform = os.platform();
+   switch(platform) {
+      case "darwin":
          installMac();
          break;
-      case 'linux':
+      case "linux":
          installLinux();
          break;
-      case 'win32':
+      case "win32":
          installWindows();
          break;
       default:
@@ -35,14 +36,14 @@ function runCommands(commands) {
    var error;
 
    commands.forEach(function(command, index) {
-      print('running \"' + command + "\"...")
+      print('running \"' + command + "\"...");
       try {
          results[index] = cp.execSync(command, {stdio: ['ignore', 'ignore', error]});
          println('success!');
       } catch(err) {
          println('Error\nCommand \"' + command + "\" did not complete successfully...");
          println("Diagnostics:\n" + err + "\n" + error);
-         println("Exiting...")
+         println("Exiting...");
          process.exit(1);
       }
    });
@@ -61,7 +62,8 @@ function installLinux() {
       'npm install -g gulp',
       'sudo gem install bundler jekyll',
       'bundler install'
-   ]
+   ];
+
    runCommands(commands);
 
    println('All is well!');
