@@ -1,6 +1,6 @@
 {
   "name": "glixer-dep",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A dumb node package that will install RubyDev-kit and run the required set up commands for Glixer",
   "main": "index.js",
   "scripts": {
