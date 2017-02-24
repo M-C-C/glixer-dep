@@ -38,7 +38,7 @@ function runCommands(commands) {
    commands.forEach(function(command, index) {
       print('running \"' + command + "\"...")
       try {
-         results[index] = cp.execSync(command, {stdio: ['ignore', 'ignore', error});
+         results[index] = cp.execSync(command, {stdio: ['ignore', 'ignore', error]);
          println('success!');
       } catch(err) {
          println('Error\nCommand \"' + command + "\" did not complete successfully...");
