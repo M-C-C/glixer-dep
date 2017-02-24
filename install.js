@@ -38,6 +38,10 @@ function installDefault() {
       'bundler install'
    ]
 
+   if (os.platform == 'linux') {
+      commands[1] = 'sudo gem install bundler jekyll'
+   }
+
    var results = [];
 
    commands.forEach(function(command, index) {
