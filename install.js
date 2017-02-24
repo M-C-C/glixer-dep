@@ -15,7 +15,7 @@ function println(string) {
 }
 
 function install() {
-   switch(os.platform) {
+   switch(os.platform()) {
       case 'darwin':
          installMac();
          break;
