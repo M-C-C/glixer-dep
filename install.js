@@ -31,33 +31,42 @@ function install() {
    }
 }
 
-function installDefault() {
-   var commands = [
-      'npm install -g gulp',
-      'gem install bundler jekyll',
-      'bundler install'
-   ]
-
-   if (os.platform == 'linux') {
-      commands[1] = 'sudo gem install bundler jekyll'
-   }
-
+function runCommands(commands) {
    var results = [];
+   var error;
 
    commands.forEach(function(command, index) {
       print('running \"' + command + "\"...")
       try {
-         results[index] = cp.execSync(command, {stdio: 'ignore'});
+         results[index] = cp.execSync(command, {stdio: ['ignore', 'ignore', error});
          println('success!');
       } catch(err) {
          println('Error\nCommand \"' + command + "\" did not complete successfully...");
-         println("Diagnostics:\n" + err);
+         println("Diagnostics:\n" + err + "\n" + error);
          println("Exiting...")
          process.exit(1);
       }
    });
+}
+
+function installMac() {
+}
+
+function installWindows() {
+}
+
+function installLinux() {
+   var commands = [
+      'sudo apt-get update',
+      'sudo apt-get install zlib1g-dev ruby ruby-dev build-essential',
+      'npm install -g gulp',
+      'sudo gem install bundler jekyll',
+      'bundler install'
+   ]
+   runCommands(commands);
+
    println('All is well!');
-   console.log(
+   println(
       '★░░░░░░░░░░░████░░░░░░░░░░░░░░░░░░░░★\n' +
       '★░░░░░░░░░███░██░░░░░░░░░░░░░░░░░░░░★\n' +
       '★░░░░░░░░░██░░░█░░░░░░░░░░░░░░░░░░░░★\n' +
@@ -80,16 +89,4 @@ function installDefault() {
       '★░░░░░░░░░█████████████░░░░░░░░░░░░░★\n' +
       '★░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░★'
    );
-}
-
-function installMac() {
-   installDefault();
-}
-
-function installWindows() {
-   installDefault();
-}
-
-function installLinux() {
-   installDefault();
 }
