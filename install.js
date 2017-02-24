@@ -61,7 +61,7 @@ function installLinux() {
       'sudo apt-get install zlib1g-dev ruby ruby-dev build-essential',
       'npm install -g gulp',
       'sudo gem install bundler jekyll',
-      'bundler install'
+      'sudo bundler install'
    ];
 
    runCommands(commands);
