@@ -2,6 +2,12 @@ var cp = require('child_process')
 var os = require('os');
 var fs = require('fs');
 
+var commands = [
+   'npm install -g gulp',
+   'sudo gem install bundler jekyll',
+   'sudo bundler install'
+];
+
 install();
 
 function print(string) {
@@ -74,33 +80,13 @@ function runCommands(commands) {
 }
 
 function installMac() {
-   var commands = [
-      'sudo npm install -g gulp',
-      'sudo gem install bundler jekyll',
-      'sudo bundler install'
-   ]
-
    runCommands(commands);
 }
 
 function installWindows() {
-   var commands = [
-      'npm install -g gulp',
-      'gem install bundler jekyll',
-      'bundler install'
-   ]
-
    runCommands(commands);
 }
 
 function installLinux() {
-   var commands = [
-      'sudo apt-get update',
-      'sudo apt-get install zlib1g-dev ruby ruby-dev build-essential',
-      'npm install -g gulp',
-      'sudo gem install bundler jekyll',
-      'sudo bundler install'
-   ];
-
    runCommands(commands);
 }
