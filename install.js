@@ -4,8 +4,8 @@ var fs = require('fs');
 
 var commands = [
    'npm install -g gulp',
-   'sudo gem install bundler jekyll',
-   'sudo bundler install'
+   'gem install bundler jekyll',
+   'bundler install'
 ];
 
 install();
