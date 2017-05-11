@@ -9,12 +9,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/M-C-C/glixer-dep.git"
+    "url": "git+https://github.com/NorthScript/glixer-dep.git"
   },
   "author": "Samuel Brekke",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/M-C-C/glixer-dep/issues"
+    "url": "https://github.com/NorthScript/glixer-dep/issues"
   },
-  "homepage": "https://github.com/M-C-C/glixer-dep#readme"
+  "homepage": "https://github.com/NorthScript/glixer-dep#readme"
 }
